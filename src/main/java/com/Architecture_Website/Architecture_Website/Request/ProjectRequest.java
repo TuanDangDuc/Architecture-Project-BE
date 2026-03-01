@@ -12,6 +12,7 @@ public record ProjectRequest(
                 String titleImage,
                 Type type,
                 String slug,
-                String content,        UUID categoryId
+                String content,
+                UUID categoryId
 ) {
 }

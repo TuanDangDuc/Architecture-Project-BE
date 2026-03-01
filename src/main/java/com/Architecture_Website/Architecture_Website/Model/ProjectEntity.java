@@ -51,7 +51,9 @@ public class ProjectEntity {
     private CategoryEntity category;
 
     @OneToMany(
-            mappedBy = "project"
+            mappedBy = "project",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     @JsonManagedReference
     private Set<ImageEntity> images;
