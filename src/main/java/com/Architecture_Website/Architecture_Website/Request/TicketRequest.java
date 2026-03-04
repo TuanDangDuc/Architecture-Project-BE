@@ -6,7 +6,7 @@ public record TicketRequest(
         String name,
         Integer area,
         String phone,
-        Integer budget,
+        String budget,
         String typeOfConsulting,
         LocalDateTime timeReceipt,
         String description

@@ -23,7 +23,7 @@ public class TicketEntity {
     private String name;
     private Integer area;
     private String phone;
-    private Integer budget;
+    private String budget;
     private String typeOfConsulting;
     private LocalDateTime timeReceipt;
     @Column(columnDefinition = "TEXT")
