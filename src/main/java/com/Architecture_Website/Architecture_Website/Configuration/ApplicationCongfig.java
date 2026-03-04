@@ -44,7 +44,9 @@ public class ApplicationCongfig {
                 public void addCorsMappings(CorsRegistry registry) {
                     registry.addMapping("/**")
                             .allowedOrigins(
-                                    "https://api.kientrucmaihuong.com"
+                                    "http://localhost:3000",
+                                    "https://api.kientrucmaihuong.com",
+                                    "https://kientrucmaihuong.com"
                             )
                             .allowedMethods("*")
                             .allowedHeaders("*")
