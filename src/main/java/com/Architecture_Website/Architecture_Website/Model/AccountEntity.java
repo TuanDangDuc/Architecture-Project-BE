@@ -29,7 +29,7 @@ public class AccountEntity {
             orphanRemoval = true
     )
     @JsonManagedReference
-    private Set<ProjectEntity> projects;
+    private List<ProjectEntity> projects;
 
     @OneToMany(
             mappedBy = "owner",
@@ -37,7 +37,7 @@ public class AccountEntity {
             orphanRemoval = true
     )
     @JsonManagedReference
-    private Set<VideoEntity> videos;
+    private List<VideoEntity> videos;
 
     @OneToMany(
             mappedBy = "account",
@@ -45,7 +45,7 @@ public class AccountEntity {
             orphanRemoval = true
     )
     @JsonManagedReference
-    private Set<PostEntity> posts;
+    private List<PostEntity> posts;
 
     @OneToMany(
             mappedBy = "account"

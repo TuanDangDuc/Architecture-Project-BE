@@ -19,6 +19,10 @@ public class VideoEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String title;
+    @Column(columnDefinition = "TEXT")
+    private String url;
+    @Column(columnDefinition = "TEXT")
+    private String thumbnailUrl;
 
     @ManyToOne
     @JsonBackReference

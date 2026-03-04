@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -28,5 +29,5 @@ public class CategoryEntity {
             mappedBy = "category"
     )
     @JsonManagedReference
-    private Set<ProjectEntity> projects;
+    private List<ProjectEntity> projects;
 }

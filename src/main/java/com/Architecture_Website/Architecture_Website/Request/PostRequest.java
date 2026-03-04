@@ -4,7 +4,10 @@ import com.Architecture_Website.Architecture_Website.Model.Enum.Status;
 import com.Architecture_Website.Architecture_Website.Model.PostEntity;
 import jakarta.persistence.Column;
 
+import java.util.UUID;
+
 public record PostRequest(
+        UUID id,
         String title,
         Integer viewQuantity,
         String titleImage,
@@ -13,7 +16,8 @@ public record PostRequest(
         Status status,
         String slug,
         @Column(columnDefinition = "TEXT")
-        String description
+        String description,
+        UUID accountId
 ) {
 
 }

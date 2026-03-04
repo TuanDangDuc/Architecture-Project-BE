@@ -9,5 +9,6 @@ public record TicketRequest(
         Integer budget,
         String typeOfConsulting,
         LocalDateTime timeReceipt,
-        String description) {
+        String description
+) {
 }

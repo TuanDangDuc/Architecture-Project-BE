@@ -10,6 +10,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -44,17 +45,17 @@ public class PostEntity {
     private AccountEntity account;
 
     @OneToMany(
-            mappedBy = "post",
-            fetch = FetchType.LAZY
+            mappedBy = "post"
     )
     @JsonManagedReference
-    private Set<VideoEntity> video;
+    private List<VideoEntity> video;
 
     @OneToMany(
             mappedBy = "post",
-            fetch = FetchType.LAZY
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
     )
     @JsonManagedReference
-    private Set<ImageEntity> image;
+    private List<ImageEntity> image;
 
 }

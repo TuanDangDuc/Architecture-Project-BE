@@ -1,17 +1,14 @@
 package com.Architecture_Website.Architecture_Website.Controller;
 
-import com.Architecture_Website.Architecture_Website.Model.PostEntity;
 import com.Architecture_Website.Architecture_Website.Request.PostRequest;
 import com.Architecture_Website.Architecture_Website.Response.PostResponse;
 import com.Architecture_Website.Architecture_Website.Service.PostService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+import java.util.UUID;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,26 +20,36 @@ public class PostController {
     public ResponseEntity<?> createPost(
             @RequestBody PostRequest postRequest
     ){
-        postService.save(PostEntity.builder()
-                        .title(postRequest.title())
-                        .viewQuantity(postRequest.viewQuantity())
-                        .titleImage(postRequest.titleImage())
-                        .content(postRequest.content())
-                        .status(postRequest.status())
-                        .slug(postRequest.slug())
-                        .description(postRequest.description())
-                .build());
+        postService.save(postRequest);
         return ResponseEntity.ok().build();
     }
 
-    @GetMapping
-    public List<PostResponse> getAllPosts(){
-        return postService.getAllPosts();
+    // use for ADMIN
+    @GetMapping("/{id}")
+    public List<PostResponse> getAllPosts(
+            @PathVariable UUID id
+    ){
+        return postService.getAllPosts(id);
     }
 
-    @DeleteMapping("{slug}")
-    public ResponseEntity<?> deletePost(@PathVariable String slug){
-        postService.deleteBySlug(slug);
+    // use for CUSTOMER
+    @GetMapping()
+    public List<PostResponse> getPostForUser(){
+        return postService.get();
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> deletePost(@PathVariable UUID id){
+        postService.deleteByid(id);
         return ResponseEntity.ok().build();
     }
+
+    @PutMapping
+    public ResponseEntity<?> updatePost(
+        @RequestBody PostRequest request
+    ) {
+        postService.update(request);
+        return ResponseEntity.ok().build();
+    }
+
 }

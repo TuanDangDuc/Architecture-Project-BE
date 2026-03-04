@@ -1,5 +1,6 @@
 package com.Architecture_Website.Architecture_Website.Model;
 
+import com.Architecture_Website.Architecture_Website.Model.Enum.Status;
 import com.Architecture_Website.Architecture_Website.Model.Enum.Style;
 import com.Architecture_Website.Architecture_Website.Model.Enum.Type;
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -10,6 +11,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -35,16 +37,19 @@ public class ProjectEntity {
     private String slug;
     @Column(columnDefinition = "TEXT")
     private String content;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
     @ManyToOne
     @JsonBackReference
     private AccountEntity owner;
 
     @OneToMany(
-            mappedBy = "project"
+            mappedBy = "project",
+            cascade = CascadeType.ALL
     )
     @JsonManagedReference
-    private Set<VideoEntity> videos;
+    private List<VideoEntity> videos;
 
     @ManyToOne
     @JsonBackReference
@@ -56,6 +61,6 @@ public class ProjectEntity {
             orphanRemoval = true
     )
     @JsonManagedReference
-    private Set<ImageEntity> images;
+    private List<ImageEntity> images;
 
 }
