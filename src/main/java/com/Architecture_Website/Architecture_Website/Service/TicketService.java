@@ -39,4 +39,11 @@ public class TicketService {
     public void deleteTicket(UUID id) {
         ticketRepository.deleteById(id);
     }
+
+    public TicketEntity updateStatus(UUID id, String status) {
+        TicketEntity ticket = ticketRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Ticket not found"));
+        ticket.setStatus(status);
+        return ticketRepository.save(ticket);
+    }
 }

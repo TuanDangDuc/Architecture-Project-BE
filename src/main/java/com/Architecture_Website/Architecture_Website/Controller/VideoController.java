@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -23,17 +24,25 @@ public class VideoController {
 
     @DeleteMapping("{id}")
     public ResponseEntity<VideoEntity> deleteVideoFromProject(
-        @PathVariable UUID id
-    ){
+            @PathVariable UUID id) {
         videoService.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping()
     public ResponseEntity<VideoEntity> updateVideo(
-            @RequestBody UpdateVideoRequest request
-    ) {
+            @RequestBody UpdateVideoRequest request) {
         videoService.update(request);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<VideoEntity>> getAllVideos() {
+        return ResponseEntity.ok(videoService.getAllVideos());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<VideoEntity> getVideoById(@PathVariable UUID id) {
+        return ResponseEntity.ok(videoService.getVideoById(id));
     }
 }

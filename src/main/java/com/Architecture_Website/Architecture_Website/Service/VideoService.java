@@ -10,6 +10,7 @@ import com.Architecture_Website.Architecture_Website.Request.VideoRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -47,5 +48,14 @@ public class VideoService {
                 .build();
 
         videoRepository.update(video);
+    }
+
+    public List<VideoEntity> getAllVideos() {
+        return videoRepository.findAll();
+    }
+
+    public VideoEntity getVideoById(UUID id) {
+        return videoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Video not found"));
     }
 }

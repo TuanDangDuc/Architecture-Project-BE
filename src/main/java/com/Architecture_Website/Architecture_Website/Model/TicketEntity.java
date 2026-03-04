@@ -28,6 +28,8 @@ public class TicketEntity {
     private LocalDateTime timeReceipt;
     @Column(columnDefinition = "TEXT")
     private String description;
+    @Builder.Default
+    private String status = "pending";
     @Column(nullable = false, updatable = false)
     @CreationTimestamp
     private LocalDateTime createAt;
