@@ -31,17 +31,11 @@ public class AccountService {
     public ResponseEntity<?> login(String username, String password) {
         try {
             Authentication auth = authenticationManager.authenticate(
-                    new UsernamePasswordAuthenticationToken(username, password));
+                    new UsernamePasswordAuthenticationToken(username, password)
+            );
 
             if (auth.isAuthenticated()) {
-                AccountEntity account = accountRepository.findAccountEntitiesByUsername(username);
-                java.util.Map<String, String> response = new java.util.HashMap<>();
-                if (account != null) {
-                    response.put("id", account.getId().toString());
-                    response.put("username", account.getUsername());
-                }
-                response.put("message", "Login success");
-                return ResponseEntity.ok(response);
+                return ResponseEntity.ok("Login success");
             }
 
         } catch (AuthenticationException e) {
