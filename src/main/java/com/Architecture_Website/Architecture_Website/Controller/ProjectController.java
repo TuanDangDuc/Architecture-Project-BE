@@ -55,4 +55,11 @@ public class ProjectController {
     ) {
         return projectService.getProjectBySubCategoryId(id);
     }
+
+    @GetMapping("/{projectId}")
+    public ProjectEntity getProjectById(
+            @PathVariable UUID projectId
+    ) {
+        return projectService.getProjectById(projectId);
+    }
 }
