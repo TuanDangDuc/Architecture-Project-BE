@@ -29,7 +29,7 @@ public class ProjectController {
     }
 
     // use for ADMIN
-    @GetMapping("/{id}")
+    @GetMapping("/admin/{id}")
     public List<ProjectEntity> getProjectByAdminId(
             @PathVariable UUID id
     ) {
@@ -56,10 +56,10 @@ public class ProjectController {
         return projectService.getProjectBySubCategoryId(id);
     }
 
-    @GetMapping("/{projectId}")
+    @GetMapping("/{id}")
     public ProjectEntity getProjectById(
-            @PathVariable UUID projectId
+            @PathVariable UUID id
     ) {
-        return projectService.getProjectById(projectId);
+        return projectService.getProjectById(id);
     }
 }
