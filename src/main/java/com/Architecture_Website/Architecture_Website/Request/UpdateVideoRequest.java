@@ -11,5 +11,8 @@ public record UpdateVideoRequest(
                 @Column(columnDefinition = "TEXT") String thumbnailUrl,
                 String youtubeId,
                 String category,
-                String duration) {
+                String duration,
+                @Column(columnDefinition = "TEXT")
+                String linkUrl
+) {
 }

@@ -16,6 +16,10 @@ public interface VideoRepository extends JpaRepository<VideoEntity, UUID> {
     @Transactional
     @Query("update VideoEntity a set a.title = :#{#video.title}," +
             "a.url = :#{#video.url}, " +
-            "a.thumbnailUrl = :#{#video.thumbnailUrl} where a.id = :#{#video.id}")
+            "a.thumbnailUrl = :#{#video.thumbnailUrl}," +
+            "a.youtubeId = :#{#video.youtubeId}," +
+            "a.category = :#{#video.category}," +
+            "a.duration = :#{#video.duration}," +
+            "a.linkUrl = :#{#video.linkUrl} where a.id = :#{#video.id}")
     public void update(VideoEntity video);
 }

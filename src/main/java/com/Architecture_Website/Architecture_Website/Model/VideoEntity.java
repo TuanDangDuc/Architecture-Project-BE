@@ -29,6 +29,8 @@ public class VideoEntity {
     private String youtubeId;
     private String category;
     private String duration;
+    @Column(columnDefinition = "TEXT")
+    String linkUrl;
     @Builder.Default
     private Integer views = 0;
     @CreationTimestamp
