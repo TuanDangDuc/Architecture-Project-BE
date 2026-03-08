@@ -10,6 +10,7 @@ public record PostRequest(
         UUID id,
         String title,
         Integer viewQuantity,
+        @Column(columnDefinition = "TEXT")
         String titleImage,
         @Column(columnDefinition = "TEXT")
         String content,

@@ -30,6 +30,7 @@ public class PostEntity {
     )
     private LocalDateTime uploadAt;
     private Integer viewQuantity;
+    @Column(columnDefinition = "TEXT")
     private String titleImage;
     @Column(columnDefinition = "TEXT")
     private String content;
