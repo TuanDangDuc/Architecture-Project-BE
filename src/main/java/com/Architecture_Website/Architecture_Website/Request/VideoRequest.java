@@ -13,5 +13,8 @@ public record VideoRequest(
                 String category,
                 String duration,
                 UUID projectId,
-                UUID adminId) {
+                UUID adminId,
+                @Column(columnDefinition = "TEXT")
+                String linkUrl
+) {
 }

@@ -32,6 +32,7 @@ public class VideoService {
                 .youtubeId(request.youtubeId())
                 .category(request.category())
                 .duration(request.duration())
+                .linkUrl(request.linkUrl())
                 .owner(request.adminId() != null ? accountRepository.getReferenceById(request.adminId()) : null)
                 .build();
 
