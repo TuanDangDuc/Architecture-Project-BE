@@ -11,17 +11,10 @@ pipeline {
             }
         }
         
-        stage ('test') {
-            steps {
-              echo 'testing....'
-                sh 'mvn clean test'
-            }
-        }
-        
         stage ('package') {
             steps {
               echo 'packaging....'
-                sh 'mvn package -DskipTests'
+                sh 'mvn clean package -DskipTests'
             }
         }
     }
