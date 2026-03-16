@@ -16,17 +16,17 @@ public class AccountController {
     private final AccountService accountService;
 
     // regis
-    @PostMapping("/register")
-    public ResponseEntity<?> createAccount(
-            @RequestBody AccountRegisterRequest accountRequest
-    ){
-        accountService.createAccount(AccountEntity.builder()
-                .username(accountRequest.username())
-                .password(accountRequest.password())
-                .email(accountRequest.email())
-                .build());
-        return new ResponseEntity<>(accountRequest, HttpStatus.CREATED);
-    }
+//    @PostMapping("/register")
+//    public ResponseEntity<?> createAccount(
+//            @RequestBody AccountRegisterRequest accountRequest
+//    ){
+//        accountService.createAccount(AccountEntity.builder()
+//                .username(accountRequest.username())
+//                .password(accountRequest.password())
+//                .email(accountRequest.email())
+//                .build());
+//        return new ResponseEntity<>(accountRequest, HttpStatus.CREATED);
+//    }
 
     // login admin
     @PostMapping("/login")
